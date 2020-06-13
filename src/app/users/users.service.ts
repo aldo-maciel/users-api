@@ -17,9 +17,6 @@ export class UsersService {
             params: {
                 per_page: pagination.step,
                 since: pagination.start
-            },
-            headers: {
-                Authorization: 'Basic YWJtYWNpZWw6Y2hBQTU4QDVMYQ=='
             }
         });
 
@@ -30,11 +27,7 @@ export class UsersService {
     async getUser(login: string): Promise<User> {
         logger.debug('getting user: ', login);
 
-        const { data } = await axios.get<User>(`${ properties.externalApis.users }/${ login }`, {
-            headers: {
-                Authorization: 'Basic YWJtYWNpZWw6Y2hBQTU4QDVMYQ=='
-            }
-        });
+        const { data } = await axios.get<User>(`${ properties.externalApis.users }/${ login }`);
 
         logger.debug('user', data);
         return data;
@@ -43,11 +36,7 @@ export class UsersService {
     async getRepos(login: string): Promise<Array<Repo>> {
         logger.debug('getting repos: ', login);
 
-        const { data } = await axios.get<Array<Repo>>(`${ properties.externalApis.users }/${ login }/repos`, {
-            headers: {
-                Authorization: 'Basic YWJtYWNpZWw6Y2hBQTU4QDVMYQ=='
-            }
-        });
+        const { data } = await axios.get<Array<Repo>>(`${ properties.externalApis.users }/${ login }/repos`);
 
         logger.debug('repos', data.length);
         return data;
