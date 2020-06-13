@@ -7,7 +7,7 @@
         "build": "tsc && tscpaths -p tsconfig.json -s ./src",
         "dev": "ts-node -r tsconfig-paths/register src/server.ts",
         "prestart": "npm install",
-        "start": "npm run build && node dist/server.js",
+        "start": "npm run build && node dist/src/server.js",
         "prod": "npm run build && npm run start",
         "test": "mocha",
         "coverage": "NODE_ENV=test nyc npm test"
