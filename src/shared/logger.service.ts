@@ -1,7 +1,5 @@
 import { configure, getLogger } from 'log4js';
 import { properties } from '@/properties';
-// @ts-ignore
-import packageJson from '@package';
 
 const { log: props } = properties;
 
@@ -42,4 +40,4 @@ configure({
         }
     }
 });
-export default getLogger(packageJson.name);
+export default getLogger('user-api');
