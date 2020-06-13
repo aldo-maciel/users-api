@@ -1,0 +1,106 @@
+@import '~eva-icons/style/scss/eva-icons';
+@import "~toastr";
+@import "src/users/users";
+@import "src/shared/paginate/pagination";
+
+$sizes: 1, 2, 3, 4, 5, 6;
+
+body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    padding: .5rem .5rem 0;
+}
+
+.row-end {
+    @extend .row;
+    justify-content: flex-end;
+}
+
+.column {
+    display: flex;
+    flex: auto;
+    flex-direction: column;
+    padding: .6rem .5rem;
+}
+
+@each $size in $sizes {
+    .column-#{$size} {
+        @extend .column;
+        flex: $size;
+        margin: 0 1rem;
+    }
+}
+
+.form-control {
+    border: .1em solid lightblue;
+    border-radius: .5rem;
+    margin: .5rem 0;
+    outline: none;
+    padding: .5rem 1rem;
+}
+
+.button-sm {
+    display: flex;
+    padding: .1rem;
+    margin: 0 .2rem;
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+
+    thead tr,
+    tbody tr {
+        &:hover {
+            background-color: rgba(236, 236, 247, .73);
+        }
+
+        &:nth-child(odd) {
+            td {
+
+                background-color: rgba(236, 236, 247, .43);
+            }
+        }
+
+        th {
+            border-bottom: .15rem solid lightgray;
+        }
+
+        th,
+        td {
+            padding: .5rem;
+
+            &:not(.text-center) {
+                text-align: start;
+            }
+        }
+    }
+
+    thead tr {
+        &:hover {
+            background-color: transparent;
+        }
+    }
+}
