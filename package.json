@@ -6,9 +6,10 @@
     "scripts": {
         "build": "tsc && tscpaths -p tsconfig.json -s ./src",
         "dev": "ts-node -r tsconfig-paths/register src/server.ts",
-        "start": "NODE_ENV=production node ./dist/server.js --open",
+        "prestart": "npm install",
+        "start": "npm run build && node dist/server.js",
         "prod": "npm run build && npm run start",
-        "test": "NODE_ENV=test mocha",
+        "test": "mocha",
         "coverage": "NODE_ENV=test nyc npm test"
     },
     "license": "MIT",
