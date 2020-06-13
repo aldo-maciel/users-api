@@ -4,12 +4,12 @@
     "private": true,
     "author": "Aldo Bernardes Maciel",
     "scripts": {
-        "build": "tsc",
+        "build": "tsc && tscpaths -p tsconfig.json -s ./src",
         "dev": "ts-node -r tsconfig-paths/register src/server.ts",
-        "start": "NODE_ENV=production node -r ts-node/register -r tsconfig-paths/register ./dist/src/server.js",
+        "start": "NODE_ENV=production node ./dist/server.js --open",
         "prod": "npm run build && npm run start",
-        "test": "PORT=3006 mocha",
-        "coverage": "nyc npm test"
+        "test": "NODE_ENV=test mocha",
+        "coverage": "NODE_ENV=test nyc npm test"
     },
     "license": "MIT",
     "dependencies": {
@@ -18,7 +18,8 @@
         "express": "4.17.1",
         "http-status-codes": "1.4.0",
         "log4js": "6.1.2",
-        "tsc": "1.20150623.0"
+        "tsc": "1.20150623.0",
+        "tsconfig-paths": "^3.9.0"
     },
     "devDependencies": {
         "@types/chai": "4.2.11",
@@ -36,6 +37,7 @@
         "sinon": "^9.0.2",
         "ts-mocha": "^7.0.0",
         "ts-node": "^8.10.2",
+        "tscpaths": "0.0.9",
         "typescript": "3.8.3"
     }
 }

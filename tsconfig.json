@@ -1,21 +1,21 @@
 {
     "compilerOptions": {
-        "target": "es6",
         "module": "commonjs",
-        "outDir": "./dist",
-        "rootDir": "./src",
-        "strict": true,
-        "moduleResolution": "node",
-        "emitDecoratorMetadata": true,
-        "experimentalDecorators": true,
         "esModuleInterop": true,
+        "target": "es6",
+        "noImplicitAny": true,
+        "experimentalDecorators": true,
+        "moduleResolution": "node",
         "resolveJsonModule": true,
+        "sourceMap": true,
+        "outDir": "dist",
+        "rootDir": "./src",
+        "baseUrl": ".",
         "types": [
             "node",
             "express",
             "mocha"
         ],
-        "baseUrl": ".",
         "paths": {
             "@/*": [
                 "src/*"
@@ -25,8 +25,12 @@
             ]
         }
     },
+    "include": [
+        "src/**/*"
+    ],
     "exclude": [
         "node_modules",
-        "ui-view"
+        "test",
+        "view"
     ]
 }
